@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsaDMsFeDTcJlSu4oNH3MX5QdJKabUcZAxPg&usqp=CAU" alt=""
+    title="при клике на картинку замена на ленивца" width="150px" class="img"
+    data="https://simple-fauna.ru/wp-content/uploads/2012/07/lenivec.jpg">
+  <!-- Событие сабмита формы -->
+  <!-- <form class="js-register-form" autocomplete="off">
+    <div role="group">
+      <label>
+        Почта
+        <input type="email" name="email" />
+      </label>
+      <br>
+      <br>
+      <label>
+        Пароль
+        <input name="password" type="password" />
+      </label>
+    </div>
+
+    <br />
+    <div role="group">
+      <b>Тип подписки:</b>
+      <label>
+        <input type="radio" name="subscription" value="free" />
+        Free
+      </label>
+      <label>
+        <input type="radio" name="subscription" value="basic" />
+        Basic
+      </label>
+      <label>
+        <input type="radio" name="subscription" value="pro" />
+        Pro
+      </label>
+    </div>
+
+    <br />
+    <button type="submit">Зарегистрироваться</button>
+  </form> -->
+
+  <ul class="ul">
+    <li><a href="#1">Задание 1</a></li>
+    <li><a href="#2">Задание 2</a></li>
+    <li><a href="#3">Задание 3</a></li>
+    <li><a href="#4">Задание 4</a></li>
+    <li><a href="#5">Задание 5</a></li>
+    <li><a href="#6">Задание 6</a></li>
+    <li><a href="#7">Задание 7</a></li>
+    <li><a href="#8">Задание 8</a></li>
+    <li><a href="#toDo">TO DO list</a></li>
+  </ul>
+
+  <form action="submit" class="form">
+    <label>
+      TO DO
+      <input type="text" class="input">
+    </label>
+    <label>
+      Filter
+      <input type="text" class="filter">
+    </label>
+    <button class="btn">send</button>
+    <button class="clear">clear</button>
+  </form>
+  <ul class="list"></ul>
+
+
+
+  <h2 id="8">Задание 8</h2>
+  <div id="controls">
+    <input type="number" min="0" max="100" step="1" class="input" />
+    <button type="button" data-action="render">Создать</button>
+    <button type="button" data-action="destroy">Очистить</button>
+  </div>
+
+  <div id="boxes"></div>
+  <h2 id="7">Задание 7</h2>
+  <input id="font-size-control" type="range" />
+  <br />
+  <span id="text">Абракадабра!</span>
+  <h2 id="6">Задание 6</h2>
+  <input type="text" id="validation-input" data-length="6" placeholder="Введи 6 символов" />
+  <h2 id="5">Задание 5</h2>
+  <input type="text" placeholder="Ваше имя?" id="name-input" />
+  <h1>Привет, <span id="name-output">незнакомец</span>!</h1>
+  <h2 id="4">Задание 4</h2>
+  <div id="counter">
+    <button type="button" data-action="decrement">-1</button>
+    <span id="value">0</span>
+    <button type="button" data-action="increment">+1</button>
+  </div>
+  <h2 id="3">Задание 3</h2>
+  <ul id="gallery"></ul>
+
+  <h2 id="2">Задание 2</h2>
+  <ul id="ingredients"></ul>
+
+  <h2 id="1">Задание 1</h2>
+  <ul id="categories">
+    <li class="item">
+      <h2>Животные</h2>
+
+      <ul>
+        <li>Кот</li>
+        <li>Хомяк</li>
+        <li>Лошадь</li>
+        <li>Попугай</li>
+      </ul>
+    </li>
+    <li class="item">
+      <h2>Продукты</h2>
+
+      <ul>
+        <li>Хлеб</li>
+        <li>Петрушка</li>
+        <li>Творог</li>
+      </ul>
+    </li>
+    <li class="item">
+      <h2>Технологии</h2>
+
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Node</li>
+      </ul>
+    </li>
+
+  </ul>
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <!-- <script defer src="js/forms.js" type="module"></script> -->
+  <!-- <script defer src="js/notebook.js" type="module"></script> -->
+  <script defer src="js/hw7.js" type="module"></script>
+  <script defer src="js/toDoList.js" type="module"></script>
+</body>
+
+</html>

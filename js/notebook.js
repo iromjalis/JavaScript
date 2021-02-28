@@ -92,3 +92,16 @@ const tech = ['HTML', 'CSS', 'JavaScript', 'React', 'Node'];
 //   text.length <= "6" ? console.log("YES") : console.log("NO");
 // });
 //___________________________________________________
+// window.addEventListener(
+//   'scroll',
+//   _.throttle(() => {
+//     console.log('Scroll event handler invocation every 1s.');
+//   }, 1000),
+// );
+
+// window.addEventListener(
+//   'scroll',
+//   _.debounce(() => {
+//     console.log('Scroll event handler invocation every 300ms.');
+//   }, 300),
+// );
