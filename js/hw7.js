@@ -4,34 +4,35 @@
 /* Для каждого элемента li.item в списке ul#categories, * и выведет в консоль текст заголовка элемента (тега h2) 
 и количество элементов в категории (всех вложенных в него элементов li). */
 
-// const ulEl = document.querySelector('#categories');
+const ulEl = document.querySelector('#categories');
 // console.log(ulEl);
 
-// const liEl = ulEl.children;
+const liEl = ulEl.children;
 // console.log(liEl); // [li.item, li.item, li.item]
-
+// console.log(liEl[0]); //<li>TextContent</li>
+console.dir(liEl);
 // console.log(`В списке ${liEl.length} категории.`);
 
-// for (let i = 0; i < liEl.length; i += 1) {
-//   let heading = liEl[i].children[0].textContent;
-//   console.log(`Категория: ${heading}`);
-//   let countOfUl = liEl[i].children[1].children.length;
-//   console.log('Количество элементов: ', countOfUl);
-// }
+for (let i = 0; i < liEl.length; i += 1) {
+  let heading = liEl[i].children[0].textContent;
+  // console.log(`Категория: ${heading}`);
+  let countOfUl = liEl[i].children[1].children.length;
+  // console.log('Количество элементов: ', countOfUl);
+}
 //_____________2__________________________________________
-// const ingredients = [
-//   'Картошка',
-//   'Грибы',
-//   'Чеснок',
-//   'Помидоры',
-//   'Зелень',
-//   'Приправы',
-// ];
-// const ulEl = document.querySelector('#ingredients');
-// console.log(ulEl);
+const ingredients = [
+  'Картошка',
+  'Грибы',
+  'Чеснок',
+  'Помидоры',
+  'Зелень',
+  'Приправы',
+];
+const ulElRef = document.querySelector('#ingredients');
+// console.log(ulElRef);
 
-// let list = ingredients.reduce((str, item) => str + `<li>${item}</li>`, '');
-// ulEl.innerHTML = list;
+let list = ingredients.reduce((str, item) => str + `<li>${item}</li>`, '');
+ulElRef.innerHTML = list;
 //_______________3______________________________________
 const images = [
   {
@@ -51,84 +52,69 @@ const images = [
   },
 ];
 
-// const ul = document.querySelector('#gallery');
-// let list = images.reduce(
-//   (str, item) =>
-//     str + `<img width='150px' src='${item.url}' alt='${item.alt}' />`,
-//   '',
-// );
-// console.log(list);
-// ul.innerHTML = list;
+const ul = document.querySelector('#gallery');
+let listImage = images.reduce(
+  (str, item) =>
+    str + `<img width='150px' src='${item.url}' alt='${item.alt}' />`,
+  '',
+);
+// console.log(listImage);
+ul.innerHTML = listImage;
 //_____________4_____________________________________
-// const valueRef = document.querySelector('#value');
+const valueRef = document.querySelector('#value');
 // console.dir(valueRef.innerText);
-// const decrementRef = document.querySelector('[data-action="decrement"]');
-// const incrementRef = document.querySelector('[data-action="increment"]');
-// decrementRef.addEventListener('click', () => {
-//   valueRef.innerText = Number(valueRef.innerText) - 1;
-// });
-// incrementRef.addEventListener('click', () => {
-//   valueRef.innerText = Number(valueRef.innerText) + 1;
-// });
+const decrementRef = document.querySelector('[data-action="decrement"]');
+const incrementRef = document.querySelector('[data-action="increment"]');
+decrementRef.addEventListener('click', () => {
+  valueRef.innerText = Number(valueRef.innerText) - 1;
+});
+incrementRef.addEventListener('click', () => {
+  valueRef.innerText = Number(valueRef.innerText) + 1;
+});
 //____________5________________________________________
-// let inputEl = document.querySelector('#name-input');
-// inputEl.addEventListener('input', onInputChange);
+let inputEl = document.querySelector('#name-input');
+inputEl.addEventListener('input', onInputChange);
 
-// let outputEl = document.querySelector('#name-output');
+let outputEl = document.querySelector('#name-output');
 
-// function onInputChange(event) {
-//   console.dir(event.currentTarget);//!введенные данные в input
-//   inputEl = event.currentTarget.value;
-//   inputEl !== ' '
-//     ? (outputEl.innerText = event.currentTarget.value)
-//     : 'незнакомец';
-// }
-//__________6______________________________________________
-{
-  /* <input type="text" id="validation-input" data-length="6" placeholder="Введи 6 символов" /> */
+function onInputChange(event) {
+  // console.dir(event.currentTarget); //!введенные данные в input
+  inputEl = event.currentTarget.value;
+  inputEl !== ' '
+    ? (outputEl.innerText = event.currentTarget.value)
+    : 'незнакомец';
 }
-// const inputRef = document.querySelector('#validation-input');
-// const lengthRef = inputRef.dataset.length;
+//__________6______________________________________________
+
+const inputRef = document.querySelector('#validation-input');
+const lengthRef = inputRef.dataset.length;
 // console.log(Number(lengthRef)); //6
 
-// inputRef.addEventListener('change', e => {
-//   console.dir(inputRef);
-//   console.log(e.target);
-//   console.log(e.currentTarget);
-//   if (e.target.value.length === Number(lengthRef)) {
-//     inputRef.classList.add('valid');
-//     inputRef.classList.remove('invalid');
-//   } else {
-//     inputRef.classList.remove('valid');
-//     inputRef.classList.add('invalid');
-//   }
-// });
+inputRef.addEventListener('change', e => {
+  // console.dir(inputRef);
+  // console.log(e.target);
+  // console.log(e.currentTarget);
+  if (e.target.value.length === Number(lengthRef)) {
+    inputRef.classList.add('valid');
+    inputRef.classList.remove('invalid');
+  } else {
+    inputRef.classList.remove('valid');
+    inputRef.classList.add('invalid');
+  }
+});
 //____________7______________________________
-// const fontSizeControl = document.querySelector('#font-size-control');
-// const text = document.querySelector('#text');
+const fontSizeControl = document.querySelector('#font-size-control');
+const text = document.querySelector('#text');
 
 // console.log(fontSizeControl.value); //50
 // console.log(typeof fontSizeControl.value); //50
 
-// fontSizeControl.addEventListener('change', e => {
-//   console.log(fontSizeControl.value);
-//   console.log(text.style.fontSize);
-//   text.style.fontSize = +fontSizeControl.value + 'px';
-// });
+fontSizeControl.addEventListener('change', e => {
+  // console.log(fontSizeControl.value);
+  // console.log(text.style.fontSize);
+  text.style.fontSize = +fontSizeControl.value + 'px';
+});
 //______________8________________________________________
-{
-  /* <div id="controls">
-  <input type="number" min="0" max="100" step="1" />
-  <button type="button" data-action="render">
-    Создать
-  </button>
-  <button type="button" data-action="destroy">
-    Очистить
-  </button>
-</div>; */
-}
-// createBoxes(amount)
-
 const boxes = document.createElement('div');
 boxes.classList.add('boxes');
 document.querySelector('#controls').appendChild(boxes);
@@ -183,7 +169,7 @@ function removeBoxes() {
 
 //______IMG_________________
 //!при клике на картинку замена на ленивца
-const imgRef = document.querySelector('.img');
+const imgRef = document.querySelector('.lenivec');
 imgRef.addEventListener('click', e => {
   imgRef.src = imgRef.getAttribute('data');
 });

@@ -9,3 +9,15 @@
 #validation-input.invalid {
   border-color: #f44336;
 }
+body {
+  position: relative;
+}
+.lenivec {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.ul {
+  border-bottom: 1px solid grey;
+}

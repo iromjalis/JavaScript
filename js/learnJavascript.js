@@ -1,3 +1,3 @@
-document.body.style.backgroundColor = 'tomato';
+// document.body.style.backgroundColor = 'yellow';
 
-setTimeout(() => (document.body.style.backgroundColor = ''), 3000);
+// setTimeout(() => (document.body.style.backgroundColor = ''), 3000);

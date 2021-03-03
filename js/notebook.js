@@ -45,63 +45,16 @@ const tech = ['HTML', 'CSS', 'JavaScript', 'React', 'Node'];
 // console.log(firstEl);
 // firstEl.before(newItem2);
 //_________________________________________________
-// const body = document.querySelector("body");
-// const btn = document.querySelector(".circle");
-// btn.style.backgroundColor = "red";
-// btn.style.width = "250px";
-// btn.style.height = "250px";
-// btn.style.borderRadius = "50%";
-// body.prepend(btn);
+window.addEventListener(
+  'scroll',
+  _.throttle(() => {
+    // console.log('Scroll event handler invocation every 1s.');
+  }, 1000),
+);
 
-// let i = 0;
-// const changeColor = (eventObject) => {
-//   i++;
-//   let random = Math.round(Math.random() * 255);
-//   btn.style.backgroundColor = `rgb(${random},${random},${random})`;
-//   btn.style.width = `${parseInt(btn.style.width) - 10}px`;
-//   btn.style.height = `${parseInt(btn.style.height) - 10}px`;
-
-// i > 2 ? btn.removeEventListener("click", changeColor) : "";
-
-//   console.log(eventObject.type); //click
-//   console.log(eventObject.target); //button
-// };
-
-// let a = btn.addEventListener("click", changeColor);
-// console.log(btn.style.width);
-// console.log(typeof btn.style.width);
-
-// const box = document.querySelectorAll(".box");
-// box.forEach((el, i) => (el.textContent = i + 1));
-// box.addEventListener;
-
-// const boxes = document.querySelector(".boxes");
-// console.log(boxes);
-
-// boxes.addEventListener("click", (event) => {
-//   console.log(event.target.textContent);
-//   console.log(event.currentTarget.textContent);
-// });
-
-//_______________________________
-// const input = document.querySelector("input");
-// // console.log(input);
-// input.addEventListener("change", (e) => {
-//   const text = e.target.value;
-//   console.log(text);
-//   text.length <= "6" ? console.log("YES") : console.log("NO");
-// });
-//___________________________________________________
-// window.addEventListener(
-//   'scroll',
-//   _.throttle(() => {
-//     console.log('Scroll event handler invocation every 1s.');
-//   }, 1000),
-// );
-
-// window.addEventListener(
-//   'scroll',
-//   _.debounce(() => {
-//     console.log('Scroll event handler invocation every 300ms.');
-//   }, 300),
-// );
+window.addEventListener(
+  'scroll',
+  _.debounce(() => {
+    // console.log('Scroll event handler invocation every 300ms.');
+  }, 300),
+);
