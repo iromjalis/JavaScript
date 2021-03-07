@@ -9,13 +9,15 @@ const ulEl = document.querySelector('#categories');
 
 const liEl = ulEl.children;
 // console.log(liEl); // [li.item, li.item, li.item]
-// console.log(liEl[0]); //<li>TextContent</li>
-console.dir(liEl);
+// console.dir(liEl);
 // console.log(`В списке ${liEl.length} категории.`);
 
 for (let i = 0; i < liEl.length; i += 1) {
-  let heading = liEl[i].children[0].textContent;
-  // console.log(`Категория: ${heading}`);
+  // let heading = liEl[i].children[0].textContent;
+  const heading = liEl[i].children[0].textContent;
+  // let heading = liEl[i].children;
+  console.dir(heading);
+  console.log(`Категория: ${heading}`);
   let countOfUl = liEl[i].children[1].children.length;
   // console.log('Количество элементов: ', countOfUl);
 }

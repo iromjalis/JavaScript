@@ -1,0 +1,26 @@
+body {
+  text-align: center;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+li {
+  margin: 10px;
+}
+.fulliview > img {
+  color: grey;
+  width: 600px;
+  height: auto;
+  object-fit: contain;
+}
+.fullview {
+  display: inline-flex;
+  text-align: center;
+  width: 600px;
+  height: auto;
+}
