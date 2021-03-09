@@ -19,7 +19,7 @@ li {
   object-fit: contain;
 }
 .fullview {
-  display: inline-flex;
+  display: inline-block;
   text-align: center;
   width: 600px;
   height: auto;

@@ -1,94 +1,64 @@
-import cardsArr from './cards.js';
+import gallery from './gallery-items.js';
 
-const listEl = document.querySelector('.js-gallery');
-console.log(listEl);
+const jsGallery = document.querySelector('.js-gallery');
+const divLightbox = document.querySelector('.js-lightbox');
+const divOverlay = document.querySelector('.lightbox__overlay');
+const imgModal = document.querySelector('.lightbox__image');
+const buttonClose = document.querySelector('.lightbox__button');
 
-const modalImgRef = document.querySelector('.lightbox__image');
-const modalRef = document.querySelector('.lightbox');
-
-cardsArr.forEach(img => {
-  listEl.insertAdjacentHTML(
-    'beforeend',
-    `<li class="cards-item"><img src=${img.url} alt="${img.description}" data-fullview="${img.original}"width="320" /></li>`,
-  );
+gallery.map((el, index) => {
+  jsGallery.innerHTML += `<li class="gallery__item"><a class="gallery__link" href=''><img class="gallery__image" src="${el.preview}" data-source="${el.original}" alt="${el.description}" data-index="${index}" width="150"/></a></li>`;
 });
 
-listEl.addEventListener('click', e => {
-  console.log(e.target);
-  if (e.target.localName === 'img') {
-    modalRef.style.display = 'block';
-    modalImgRef.src = e.target.src;
-  }
+jsGallery.addEventListener('click', e => {
+  e.preventDefault();
+  let modalLink = e.target.dataset.source;
+  divLightbox.classList.add('is-open');
+  imgModal.src = modalLink;
+  imgModal.dataset.index = e.target.dataset.index;
 });
 
-const nav = ['home', 'about us', 'page', 'shop', 'blog', 'contact us'];
+buttonClose.addEventListener('click', closeOverlay);
+divOverlay.addEventListener('click', closeOverlay);
 
-const galleryRef = document.createElement('ul');
-galleryRef.classList.add('gallery');
-
-const bodyRef = document.querySelector('body');
-bodyRef.prepend(galleryRef);
-
-cardsArr.forEach(item => {
-  galleryRef.insertAdjacentHTML(
-    'beforeend',
-    `<li class="gallery__item" ><img src="${item.preview}" alt="${item.description}" width="250" height="auto" />
-  <h2>${item.description}</h2>
-  <p>${item.price}$</p>
-  <button type="button">Add</button></li> `,
-  );
-});
-
-const originalImgRef = document.createElement('img');
-console.log(originalImgRef);
-originalImgRef.classList.add('original__image');
-
-bodyRef.prepend(originalImgRef);
-
-const galleryItemRef = document.querySelector('.gallery__item');
-const buttonRef = document.querySelectorAll('button');
-
-galleryItemRef.addEventListener('click', e => {
-  console.log(e.target);
-  console.dir(e.target);
-  // console.log(originalImgRef.src);
-
-  if (e.target.localName === 'img') {
-    originalImgRef.src = e.target.src;
-    originalImgRef.classList.add('is-open');
-  }
-  if (e.target.localName === 'button') {
-    console.log('hello');
-    e.target.textContent = 'Added';
-    e.target.style.backgroundColor = 'green';
-  }
-});
-
-bodyRef.addEventListener('click', e => {
-  if (e.target.localName !== 'img') {
-    originalImgRef.src = '';
-    originalImgRef.classList.remove('is-open');
-  } else if (e.target.localName === 'img') {
-    originalImgRef.src = e.target.src;
-    originalImgRef.classList.add('is-open');
-  }
-});
-bodyRef.addEventListener('keydown', e => {
+window.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
-    originalImgRef.src = '';
-    originalImgRef.classList.remove('is-open');
+    closeOverlay();
+  }
+  if (e.key === 'ArrowLeft') {
+    arrowLeft();
+  }
+  if (e.key === 'ArrowRight') {
+    arrowRight();
   }
 });
 
-//________________________________
-const menuRef = document.createElement('nav');
-menuRef.classList.add('nav');
-bodyRef.prepend(menuRef);
+function closeOverlay() {
+  divLightbox.classList.remove('is-open');
+  imgModal.src = '';
+}
 
-// modalRef.addEventListener('click');
-nav.forEach(item => {
-  menuRef.insertAdjacentHTML(
-    'beforeend',
-    `<li class="nav__item"><a href="">${item}</a></li>`,
-  );
-});
+function setNewSrc(step, index) {
+  imgModal.dataset.index = `${index + step}`;
+  imgModal.src = gallery[index + step].original;
+}
+
+function arrowLeft() {
+  let index = Number(imgModal.dataset.index);
+  if (index === 0) {
+    console.log(gallery.length);
+    setNewSrc(0, gallery.length - 1);
+    return;
+  }
+  // console.log(index);
+  setNewSrc(-1, index);
+}
+
+function arrowRight() {
+  let index = +imgModal.dataset.index;
+  if (index === gallery.length - 1) {
+    setNewSrc(0, 0);
+    return;
+  }
+  setNewSrc(1, index);
+}
