@@ -1,29 +1,20 @@
 import cardsArr from './cards.js';
 
-const listEl = document.createElement('ul');
+const listEl = document.querySelector('.js-gallery');
 console.log(listEl);
-listEl.classList.add('cards-list');
 
-const modalImgRef = document.querySelector('.modal-img');
-const modalRef = document.querySelector('.modal');
+const modalImgRef = document.querySelector('.lightbox__image');
+const modalRef = document.querySelector('.lightbox');
 
 cardsArr.forEach(img => {
   listEl.insertAdjacentHTML(
     'beforeend',
-    `<li><img src=${img.url} alt="${img.description}" /></li>`,
+    `<li class="cards-item"><img src=${img.url} alt="${img.description}" data-fullview="${img.original}"width="320" /></li>`,
   );
 });
-// const markup = cardsArr
-//   .map(
-//     ({ name, url, id, description }) =>
-//       `<li><p>${name}</p><img src='${url}' alt='${description}' id='${id}' width='320'></img></li>`,
-//   )
-//   .join(' ');
-
-// listEl.insertAdjacentHTML('afterbegin', markup);
 
 listEl.addEventListener('click', e => {
-  console.log('hello');
+  console.log(e.target);
   if (e.target.localName === 'img') {
     modalRef.style.display = 'block';
     modalImgRef.src = e.target.src;
@@ -46,4 +37,4 @@ window.addEventListener('keydown', e => {
   }
 });
 
-modalRef.addEventListener('click');
+// modalRef.addEventListener('click');
