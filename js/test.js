@@ -1,20 +1,34 @@
-const ulList = document.querySelector('.test_list')
-console.log(ulList);
-const liItem = document.querySelector('.test_item')
-liItem.textContent = 'Text'
-console.log(liItem);
+const nav = document.querySelector(".js-nav");
 
-const newLi = liItem.cloneNode(true)
-newLi.textContent='New LI'
-ulList.appendChild(newLi)
-ulList.insertAdjacentHTML('beforeend', `<li><p>insertAdjacentHTML</p></li>`)
+nav.addEventListener('click', handleNavClick)
 
-const newEl = document.createElement('a')
-newEl.classList.add('.link')
-newEl.textContent = 'Link'
-liItem.appendChild(newEl)
 
-const imgEl = document.createElement('img')
-imgEl.alt = 'No photo'
-ulList.before(imgEl)
+function handleNavClick(e){
+e.preventDefault()
 
+const target = e.target
+console.log('target', target);    
+
+if(target.nodeName !== 'A'){
+    return
+``
+}
+setActiveLink(target)
+
+}
+
+function setActiveLink(nextActiveLink){
+    const currentActiveLink = nav.querySelector('a.active')
+
+    if(currentActiveLink){
+        currentActiveLink.classList.remove('active')
+    }
+    nextActiveLink.classList.add('active')
+}
+window.addEventListener(
+    'scroll',
+    _.throttle(() => {
+      console.log('Scroll event handler invocation every 300ms.');
+    }, 300),
+  );
+  
