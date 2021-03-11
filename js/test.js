@@ -7,7 +7,6 @@ function handleNavClick(e){
 e.preventDefault()
 
 const target = e.target
-console.log('target', target);    
 
 if(target.nodeName !== 'A'){
     return
@@ -27,8 +26,8 @@ function setActiveLink(nextActiveLink){
 }
 window.addEventListener(
     'scroll',
-    _.throttle(() => {
+    _.debounce(() => {
       console.log('Scroll event handler invocation every 300ms.');
-    }, 300),
+    }, 3000),
   );
   
