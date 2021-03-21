@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Мастерская: таймер</title>
+  <link rel="stylesheet" href="./css/timer.css">
+</head>
+
+<body>
+  <p><a href="index.html">На главную</a></p>
+
+  <div class="timer">
+    <p class="clockface js-clockface"></p>
+
+    <div class="actions">
+      <button class="timer-btn" data-action-start>Запустить</button>
+      <button class="timer-btn" data-action-stop>Остановить</button>
+    </div>
+  </div>
+
+  <!-- <time>
+    <canvas id="months" width="80" height="80"></canvas>
+    <canvas id="days" width="80" height="80"></canvas>
+    <canvas id="hours" width="80" height="80"></canvas>
+    <canvas id="minutes" width="80" height="80"></canvas>
+    <canvas id="seconds" width="80" height="80"></canvas>
+    <canvas id="milliseconds" width="80" height="80"></canvas>
+    <p>months, days, hours, minutes, seconds, milliseconds</p>
+  </time> -->
+
+  <div class="container">
+    <h1 id="headline">Countdown to my birthday:</h1>
+    <div id="countdown">
+      <ul>
+        <li><span id="days"></span>days</li>
+        <li><span id="hours"></span>Hours</li>
+        <li><span id="minutes"></span>Minutes</li>
+        <li><span id="seconds"></span>Seconds</li>
+      </ul>
+    </div>
+    <div class="message">
+      <div id="content">
+        <span class="emoji">🥳</span>
+        <span class="emoji">🎉</span>
+        <span class="emoji">🎂</span>
+      </div>
+    </div>
+  </div>
+  <script src="js/timer.js"></script>
+</body>
+
+</html>
