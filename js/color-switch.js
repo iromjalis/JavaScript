@@ -18,17 +18,21 @@ refs = {
   stop: document.querySelector('button[data-action="stop"]'),
 };
 
+const randomIntegerFromInterval = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
 let random = null;
 let colorSwitch = null;
 refs.start.addEventListener('click', () => {
   changeBtnStatus(false, true);
-  colorSwitch = setInterval(() => {
-    // выполнится третьим, спустя 2 секунды
-    random = Math.round(Math.random() * (colors.length - 1));
 
-    document.body.style.backgroundColor = colors[random];
+  colorSwitch = setInterval(() => {
+    document.body.style.backgroundColor =
+      colors[randomIntegerFromInterval(0, colors.length - 1)];
   }, 1000);
 });
+
 refs.stop.addEventListener('click', () => {
   clearInterval(colorSwitch);
   changeBtnStatus(true, false);
