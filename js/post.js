@@ -37,7 +37,7 @@ function showNotification() {
     refs.notification.classList.add('is-visible')
 
     timeoutId = setTimeout(() => {
-        console.log('нужно закрыть алерт');
+        // console.log('нужно закрыть алерт');
 
         hideNotification()
     }, NOTIFICATION_DELAY)
@@ -54,53 +54,73 @@ function hideNotification() {
 
 let promptCounter = 0
 let hasSubscribed = false
+const PROMPT_DELAY = 1000;
 
-const intervalId = setInterval(() => {
-    if (promptCounter === MAX_PROMPT_ATTEMPT || hasSubscribed) {
-        console.log('Останавливаем интервал');
-        clearInterval(intervalId)
-        return;
-    }
-    console.log('ПОДПИШИСЬ на рассылку! - ' + Date.now());
-    promptCounter += 1;
-    console.log(promptCounter);
-}, PROMPT_DELAY)
+
+// const intervalId = setInterval(() => {
+//     if (promptCounter === MAX_PROMPT_ATTEMPT || hasSubscribed) {
+//         console.log('Останавливаем интервал');
+//         clearInterval(intervalId)
+//         return;
+//     }
+//     console.log('ПОДПИШИСЬ на рассылку! - ' + Date.now());
+//     promptCounter += 1;
+//     console.log(promptCounter);
+// }, PROMPT_DELAY)
 
 //MODAL
 
 // import BSN from 'bootstrap.native'
 
-const modal = new BSN.Modal('#subscription-modal')
-const PROMPT_DELAY = 1000;
+// const modal = new BSN.Modal('#subscription-modal')
+// const PROMPT_DELAY = 1000;
 const MAX_PROMPT_ATTEMPT = 3;
 // let hasSubscribed = false
-console.log(modal);
+// console.log(modal);
 
-openModal()
+// openModal()
 
-refs.modal = new BSN.Modal('#hide.bs.modal', openModal)
-refs.subscribeBtn.addEventListener('click', onSubscribeButtonClick)
+// refs.modal = new BSN.Modal('#hide.bs.modal', openModal)
+// refs.subscribeBtn.addEventListener('click', onSubscribeButtonClick)
 
 
 //заводим setTimeout после закрытия модалки каждый раз
-function openModal() {
-    if (promptCounter === MAX_PROMPT_ATTEMPT || hasSubscribed) {
-        clearTimeout()
-        return;
-    }
-    setTimeout(() => {
-        modal.show();
-        promptCounter += 1;
+// function openModal() {
+//     if (promptCounter === MAX_PROMPT_ATTEMPT || hasSubscribed) {
+//         clearTimeout()
+//         return;
+//     }
+//     setTimeout(() => {
+//         modal.show();
+//         promptCounter += 1;
 
-        console.log('открываем модалку');
-    }, PROMPT_DELAY);
-}
+//         console.log('открываем модалку');
+//     }, PROMPT_DELAY);
+// }
 
-function onSubscribeButtonClick() {
-    hasSubscribed = true;
-    modal.hide();
-}
+// function onSubscribeButtonClick() {
+//     hasSubscribed = true;
+//     modal.hide();
+// }
 
-//////---------------------------------
-const date = new Date();
+//////--------------------TIMER-------------
+const date = Date.now()
 console.log(date)
+
+setTimeout(() => {
+    const date2 = Date.now() //в ms
+    console.log(date2)
+
+    const delta = date2 - date
+    console.log(delta)
+}, 3000);
+
+const timer = {
+    const start(){ 
+        const startTime = Date.now()
+
+    setInterval(()=> {
+    console.log('hello');
+}, 1000)
+}
+timer.start()
