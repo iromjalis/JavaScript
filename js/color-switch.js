@@ -1,39 +1,39 @@
 const colors = [
-  '#FFFFFF',
-  '#2196F3',
-  '#4CAF50',
-  '#FF9800',
-  '#009688',
-  '#795548',
+    '#FFFFFF',
+    '#2196F3',
+    '#4CAF50',
+    '#FF9800',
+    '#009688',
+    '#795548',
 ];
-
+document.body.style.textAlign = 'center'
 const changeBtnStatus = (remove, add) => {
-  refs.start.disabled = add;
-  refs.stop.disabled = remove;
+    refs.start.disabled = add;
+    refs.stop.disabled = remove;
 };
 
 refs = {
-  body: document.body,
-  start: document.querySelector('button[data-action="start"]'),
-  stop: document.querySelector('button[data-action="stop"]'),
+    body: document.body,
+    start: document.querySelector('button[data-action="start"]'),
+    stop: document.querySelector('button[data-action="stop"]'),
 };
 
 const randomIntegerFromInterval = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+    return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
 let random = null;
 let colorSwitch = null;
 refs.start.addEventListener('click', () => {
-  changeBtnStatus(false, true);
+    changeBtnStatus(false, true);
 
-  colorSwitch = setInterval(() => {
-    document.body.style.backgroundColor =
-      colors[randomIntegerFromInterval(0, colors.length - 1)];
-  }, 1000);
+    colorSwitch = setInterval(() => {
+        document.body.style.backgroundColor =
+            colors[randomIntegerFromInterval(0, colors.length - 1)];
+    }, 1000);
 });
 
 refs.stop.addEventListener('click', () => {
-  clearInterval(colorSwitch);
-  changeBtnStatus(true, false);
+    clearInterval(colorSwitch);
+    changeBtnStatus(true, false);
 });
